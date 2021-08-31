@@ -8,10 +8,19 @@ export class HttpClient{
     this.url = url
   }
 
+  RandomIdGenerator() {
+    let id = '';
+    let charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let length = 8;
+    for (let i = 0; i < length; i++)
+      id += charSet.charAt(Math.floor(Math.random() * charSet.length));
+    return id;
+  }
+
   public async send(method : THETA_METHOD_ENUM,params:any){
     const requestBody = {
       jsonrpc: "2.0",
-      id: (this.nextId++),
+      id: this.RandomIdGenerator(),
       method: method,
       params: params,
     };

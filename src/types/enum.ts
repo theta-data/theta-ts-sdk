@@ -33,5 +33,8 @@ export enum THETA_METHOD_ENUM{
   GetBlock = 'theta.GetBlock',
   GetBlockByHeight = 'theta.GetBlockByHeight',
   GetTransaction = 'theta.GetTransaction',
-  CallSmartContract = 'theta.CallSmartContract'
+  CallSmartContract = 'theta.CallSmartContract',
+  GetVcpByHeight = 'theta.GetVcpByHeight',
+  getGcpByHeight = 'theta.GetGcpByHeight',
+  getEenpByHeight = 'theta.GetEenpByHeight',
 }

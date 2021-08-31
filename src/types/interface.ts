@@ -98,3 +98,81 @@ export interface HTTP_PROVIDER_INTERFACE {
 export interface THETA_METHOD_INTERFACE {
   method: 'theta.GetAccount' | 'theta.BroadcastRawTransaction'
 }
+
+export interface THETA_VCP_INTERFACE {
+  jsonrpc: '2.0'
+  id: number //1
+  result: {
+    BlockHashVcpPairs: [
+      {
+        BlockHash: string //'0x2275be25fa5f7081acccd363e520d1380f2f85f557f119d59b617bc0c927cfc4'
+        Vcp: {
+          SortedCandidates: Array<{
+            Holder: string //'0x80eab22e27d4b94511f5906484369b868d6552d2'
+            Stakes: Array<{
+              source: string //'0x4aefa39caeadd662ae31ab0ce7c8c2c9c0a013e8'
+              amount: string //'20000000000000000000000000'
+              withdrawn: boolean // false
+              return_height: string //'18446744073709551615'
+            }>
+          }>
+        }
+        HeightList: {
+          Heights: Array<number>
+        }
+      }
+    ]
+  }
+}
+
+export interface THETA_GCP_INTERFACE {
+  jsonrpc: string //'2.0'
+  id: number //1
+  result: {
+    BlockHashGcpPairs: [
+      {
+        BlockHash: string //'0x2275be25fa5f7081acccd363e520d1380f2f85f557f119d59b617bc0c927cfc4'
+        Gcp: {
+          SortedGuardians: Array<{
+            Holder: string //'0x80eab22e27d4b94511f5906484369b868d6552d2'
+            Stakes: Array<{
+              source: string //'0x4aefa39caeadd662ae31ab0ce7c8c2c9c0a013e8'
+              amount: string //'20000000000000000000000000'
+              withdrawn: boolean // false
+              return_height: string //'18446744073709551615'
+            }>
+          }>
+        }
+        HeightList: {
+          Heights: Array<number>
+        }
+      }
+    ]
+  }
+}
+
+export interface THETA_EENP_INTERFACE {
+  jsonrpc: string //'2.0'
+  id: number //1
+  result: {
+    BlockHashEenpPairs: [
+      {
+        BlockHash: string //'0x2275be25fa5f7081acccd363e520d1380f2f85f557f119d59b617bc0c927cfc4'
+        EENs: {
+          SortedGuardians: Array<{
+            Holder: string //'0x80eab22e27d4b94511f5906484369b868d6552d2'
+            Stakes: Array<{
+              source: string //'0x4aefa39caeadd662ae31ab0ce7c8c2c9c0a013e8'
+              amount: string //'20000000000000000000000000'
+              withdrawn: boolean // false
+              return_height: string //'18446744073709551615'
+            }>
+          }>
+        }
+        HeightList: {
+          Heights: Array<number>
+        }
+      }
+    ]
+  }
+}

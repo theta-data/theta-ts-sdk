@@ -1,6 +1,6 @@
 {
   "name": "theta-ts-sdk",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "theta sdk for typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,5 +19,9 @@
   "dependencies": {
     "cross-fetch": "^3.1.4",
     "prettier": "^2.2.1"
+  },
+  "repository":{
+    "type": "git",
+    "url": "https://github.com/theta-data/theta-ts-sdk"
   }
 }
