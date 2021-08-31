@@ -174,3 +174,22 @@ export interface THETA_EENP_INTERFACE {
     ]
   }
 }
+
+export interface THETA_NODE_STATUS {
+  jsonrpc: '2.0'
+  id: 1
+  result: {
+    address: string //'0x1676d4D39cbC7519De75878765Fdde964B432732'
+    chain_id: string //'mainnet'
+    peer_id: string //'0x1676d4D39cbC7519De75878765Fdde964B432732'
+    latest_finalized_block_hash: string //'0x6fc056d88b59285d3c1fadf192cb6aab7128ba3eb110bc076f69fd2230101117'
+    latest_finalized_block_height: string //'11798375'
+    latest_finalized_block_time: string //'1630400947'
+    latest_finalized_block_epoch: string //'11880229'
+    current_epoch: string //'11880231'
+    current_height: string //'11798375'
+    current_time: string //'1630400964'
+    syncing: false
+    genesis_block_hash: '0xd8836c6cf3c3ccea0b015b4ed0f9efb0ffe6254db793a515843c9d0f68cbab65'
+  }
+}

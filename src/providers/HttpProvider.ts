@@ -4,6 +4,7 @@ import {
   THETA_BLOCK_INTERFACE,
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
+  THETA_NODE_STATUS,
   THETA_VCP_INTERFACE
 } from '../types/interface'
 
@@ -24,11 +25,16 @@ export class ThetaHttpProvider {
 
   async getGcpByHeight(blockHeight: string): Promise<THETA_GCP_INTERFACE> {
     const params = { height: blockHeight }
-    return await this.httpClient.send(THETA_METHOD_ENUM.getGcpByHeight, params)
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetGcpByHeight, params)
   }
 
   async getEenpByHeight(blockHeight: string): Promise<THETA_EENP_INTERFACE> {
     const params = { height: blockHeight }
-    return await this.httpClient.send(THETA_METHOD_ENUM.getEenpByHeight, params)
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetEenpByHeight, params)
+  }
+
+  async getStatus(): Promise<THETA_NODE_STATUS> {
+    const params = {}
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetEenpByHeight, params)
   }
 }
