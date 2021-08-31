@@ -1,6 +1,6 @@
 {
   "name": "theta-ts-sdk",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "theta sdk for typescript",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
