@@ -240,8 +240,10 @@ interface THETA_NODE_STATUS {
 
 ### Creating The CmcHttpProvider
 
-this will provide price related information from  [CoinMarketCap Website](https://coinmarketcap.com) 
-you should get your own api key from [CoinMarketCap API](https://coinmarketcap.com/api/)
+this will provide price related information from  [CoinMarketCap Website](https://coinmarketcap.com).  
+
+you should get your own api key from [CoinMarketCap API](https://coinmarketcap.com/api/).   
+
 
 ```typescript
 const provider = new CmcHttpProvider('your-own-key')
