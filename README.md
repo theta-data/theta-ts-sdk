@@ -1,4 +1,5 @@
-[![NPM](https://nodei.co/npm/theta-ts-sdk.png)](https://nodei.co/npm/theta-ts-sdk/)
+[![NPM](https://nodei.co/npm/theta-ts-sdk.png)](https://nodei.co/npm/theta-ts-sdk/)   
+
 Theta-ts-sdk is the typescript version sdk for [The Theta Network](https://www.thetatoken.org/)
 
 ## Features
