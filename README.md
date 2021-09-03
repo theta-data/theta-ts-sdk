@@ -16,16 +16,17 @@ npm install theta-ts-sdk --save
 
 ## Quick Start
 
-### Creating The ThetaHttpProvider
+### blockchain
 
-```typescript
-const provider = new ThetaHttpProvider('https://theta-bridge-rpc.thetatoken.org/rpc') //support use your own rpc url
+[comment]: <> (```typescript)
+
+[comment]: <> (const provider = new ThetaHttpProvider&#40;'https://theta-bridge-rpc.thetatoken.org/rpc'&#41; //support use your own rpc url)
 
 ```
 #### getBlockByHeight
 
 ```typescript
-const blockInfo = await provider.getBlockByHeight('11828300')
+const blockInfo = await thetaTsSdk.blockchain.getBlockByHeight('11828300')
 ```
 Response:
 ```typescript
@@ -117,7 +118,7 @@ interface THETA_BLOCK_INTERFACE {
 #### getVcpByHeight
 
 ```typescript
-  const blockInfo = await provider.getVcpByHeight('11828300')
+  const blockInfo = await thetaTsSdk.blockchain.getVcpByHeight('11828300')
 ```
 Response:
 ```typescript
@@ -151,7 +152,7 @@ interface THETA_VCP_INTERFACE {
 #### getGcpByHeight
 
 ```typescript
- const blockInfo = await provider.getGcpByHeight('11828300')
+ const blockInfo = await thetaTsSdk.blockchain.getGcpByHeight('11828300')
 ```
 Response:
 ```typescript
@@ -185,7 +186,7 @@ interface THETA_GCP_INTERFACE {
 #### getEenpByHeight
 
 ```typescript
-const blockInfo = await provider.getEenpByHeight('11828300')
+const blockInfo = await thetaTsSdk.blockchain.getEenpByHeight('11828300')
 ```
 Response:
 ```typescript
@@ -216,7 +217,7 @@ interface THETA_EENP_INTERFACE {
 #### getStatus
 
 ```typescript
-  const blockInfo = await provider.getStatus()
+  const blockInfo = await thetaTsSdk.blockchain.getStatus()
 ```
 Response:
 ```typescript
@@ -246,16 +247,16 @@ this will provide price related information from  [CoinMarketCap Website](https:
 
 you should get your own api key from [CoinMarketCap API](https://coinmarketcap.com/api/).   
 
-
+set your own key
 ```typescript
-const provider = new CmcHttpProvider('your-own-key')
+thetaTsSdk.cmc.setKey('set-your-own key')
 
 ```
 
 #### getInformation
 
 ````typescript
-const res = await provider.getInformation()
+const res = await thetaTsSdk.cmc.getInformation()
 ````
 Response:
 ```typescript

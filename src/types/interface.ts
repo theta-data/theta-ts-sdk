@@ -1,4 +1,6 @@
 import { THETA_BLOCK_STATUS_ENUM, THETA_TRANSACTION_TYPE_ENUM } from './enum'
+import { CmcHttpProvider } from '../providers/CmcHttpProvider'
+import { ThetaHttpProvider } from '../providers/ThetaHttpProvider'
 
 export interface THETA_NETWORK_INTERFACE {
   chainId: string
@@ -202,4 +204,9 @@ export interface CMC_PRICE_INFORMATION {
   total_supply: number
   circulating_supply: number
   last_updated: string
+}
+
+export interface THETA_TS_SDK {
+  cmc: CmcHttpProvider
+  blockchain: ThetaHttpProvider
 }

@@ -11,7 +11,11 @@ import {
 export class ThetaHttpProvider {
   httpClient: HttpClient
 
-  constructor(url: string) {
+  constructor() {
+    this.httpClient = new HttpClient('https://theta-bridge-rpc.thetatoken.org/rpc')
+  }
+
+  setUrl(url: string) {
     this.httpClient = new HttpClient(url)
   }
 

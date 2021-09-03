@@ -2,9 +2,12 @@ import fetch from 'cross-fetch'
 import { CMC_PRICE_INFORMATION } from '../types/interface'
 
 export class CmcHttpProvider {
-  key: string
+  key: string = ''
   url: string = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
-  constructor(key: string) {
+  constructor() {
+    // this.key = key
+  }
+  setKey(key: string) {
     this.key = key
   }
 
