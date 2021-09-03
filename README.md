@@ -22,7 +22,7 @@ npm install theta-ts-sdk --save
 
 [comment]: <> (const provider = new ThetaHttpProvider&#40;'https://theta-bridge-rpc.thetatoken.org/rpc'&#41; //support use your own rpc url)
 
-```
+[comment]: <> (```)
 #### getBlockByHeight
 
 ```typescript
