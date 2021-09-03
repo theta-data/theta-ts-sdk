@@ -1,4 +1,4 @@
-Theta-ts-sdk is the typescript version sdk for The Theta Network.
+Theta-ts-sdk is the typescript version sdk for [The Theta Network](https://www.thetatoken.org/)
 
 ## Features
 
@@ -240,7 +240,8 @@ interface THETA_NODE_STATUS {
 
 ### Creating The CmcHttpProvider
 
-this will provide price related information from coinmarketcap
+this will provide price related information from  [CoinMarketCap Website](https://coinmarketcap.com) 
+you should get your own api key from [CoinMarketCap API](https://coinmarketcap.com/api/)
 
 ```typescript
 const provider = new CmcHttpProvider('your-own-key')
