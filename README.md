@@ -1,4 +1,4 @@
-Theta-ts-sdk is the typescript version sdk for the theta network.
+Theta-ts-sdk is the typescript version sdk for The Theta Network.
 
 ## Features
 
