@@ -25,8 +25,7 @@ const provider = new ThetaHttpProvider('https://theta-bridge-rpc.thetatoken.org/
 ```typescript
 const blockInfo = await provider.getBlockByHeight('11828300')
 ```
-
-**Response:**
+Response:
 ```typescript
 interface THETA_BLOCK_INTERFACE {
   jsonrpc: '2.0'
@@ -118,7 +117,7 @@ interface THETA_BLOCK_INTERFACE {
 ```typescript
   const blockInfo = await provider.getVcpByHeight('11828300')
 ```
-**Response:**
+Response:
 ```typescript
 interface THETA_VCP_INTERFACE {
   jsonrpc: '2.0'
@@ -152,7 +151,7 @@ interface THETA_VCP_INTERFACE {
 ```typescript
  const blockInfo = await provider.getGcpByHeight('11828300')
 ```
-**Response:**
+Response:
 ```typescript
 interface THETA_GCP_INTERFACE {
   jsonrpc: string //'2.0'
@@ -186,7 +185,7 @@ interface THETA_GCP_INTERFACE {
 ```typescript
 const blockInfo = await provider.getEenpByHeight('11828300')
 ```
-**Response:**
+Response:
 ```typescript
 interface THETA_EENP_INTERFACE {
   jsonrpc: string //'2.0'
@@ -217,7 +216,7 @@ interface THETA_EENP_INTERFACE {
 ```typescript
   const blockInfo = await provider.getStatus()
 ```
-**Response:**
+Response:
 ```typescript
 interface THETA_NODE_STATUS {
   jsonrpc: '2.0'
@@ -253,7 +252,7 @@ const provider = new CmcHttpProvider('your-own-key')
 ````typescript
 const res = await provider.getInformation()
 ````
-**Response:**
+Response:
 ```typescript
 interface CMC_PRICE_INFORMATION {
   name: string
