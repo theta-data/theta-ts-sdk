@@ -10,9 +10,11 @@ import {
 
 export class ThetaHttpProvider {
   httpClient: HttpClient
+
   constructor(url: string) {
     this.httpClient = new HttpClient(url)
   }
+
   async getBlockByHeight(blockHeight: string): Promise<THETA_BLOCK_INTERFACE> {
     const params = { height: blockHeight }
     return await this.httpClient.send(THETA_METHOD_ENUM.GetBlockByHeight, params)
@@ -35,6 +37,6 @@ export class ThetaHttpProvider {
 
   async getStatus(): Promise<THETA_NODE_STATUS> {
     const params = {}
-    return await this.httpClient.send(THETA_METHOD_ENUM.GetEenpByHeight, params)
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetStatus, params)
   }
 }

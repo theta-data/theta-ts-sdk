@@ -193,3 +193,13 @@ export interface THETA_NODE_STATUS {
     genesis_block_hash: '0xd8836c6cf3c3ccea0b015b4ed0f9efb0ffe6254db793a515843c9d0f68cbab65'
   }
 }
+
+export interface CMC_PRICE_INFORMATION {
+  name: string
+  price: number
+  volume_24h: number
+  market_cap: number
+  total_supply: number
+  circulating_supply: number
+  last_updated: string
+}
