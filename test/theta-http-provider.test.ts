@@ -14,6 +14,7 @@ test('should get vcp by height', async () => {
 
 test('should get gcp by height', async () => {
   const blockInfo = await provider.getGcpByHeight(height)
+
   expect(blockInfo).toHaveProperty('result.BlockHashGcpPairs')
 })
 

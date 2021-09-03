@@ -9,18 +9,6 @@ export class CmcHttpProvider {
   }
 
   async getInformation(): Promise<{ tfuel: CMC_PRICE_INFORMATION; theta: CMC_PRICE_INFORMATION }> {
-    const requestBody = {
-      method: 'GET',
-      uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest',
-      qs: {
-        id: '2416,3822'
-      },
-      headers: {
-        'X-CMC_PRO_API_KEY': this.key
-      },
-      json: true,
-      gzip: true
-    }
     try {
       const res = await fetch(this.url + '?id=2416,3822', {
         method: 'GET',
