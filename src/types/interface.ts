@@ -31,16 +31,16 @@ export interface THETA_BLOCK_INTERFACE {
       }>
       BlockHash: string
     }
-    guardian_votes: null | Array<{
+    guardian_votes: null | {
       Block: string
       Gcp: string
       Multiplies: Array<number>
-    }>
-    elite_edge_node_votes: null | Array<{
+    }
+    elite_edge_node_votes: null | {
       Block: string
       Multiplies: Array<number>
       Addresses: Array<string>
-    }>
+    }
     children: Array<string>
     status: THETA_BLOCK_STATUS_ENUM
     hash: string
