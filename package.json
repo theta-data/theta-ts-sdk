@@ -1,6 +1,6 @@
 {
   "name": "theta-ts-sdk",
-  "version": "0.2.57",
+  "version": "0.2.58",
   "description": "theta sdk for typescript",
   "scripts": {
     "test": "jest",

@@ -37,5 +37,7 @@ export enum THETA_METHOD_ENUM {
   GetVcpByHeight = 'theta.GetVcpByHeight',
   GetGcpByHeight = 'theta.GetGcpByHeight',
   GetEenpByHeight = 'theta.GetEenpByHeight',
-  GetStatus = 'theta.GetStatus'
+  GetStatus = 'theta.GetStatus',
+  GetVersion = 'theta.GetVersion'
+  // GetAccount = 'theta.GetAccount'
 }

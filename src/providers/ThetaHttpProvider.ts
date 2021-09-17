@@ -4,7 +4,10 @@ import {
   THETA_BLOCK_INTERFACE,
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
+  THETA_GET_ACCOUNT_INTERFACE,
+  THETA_GET_VERSION_INTERFACE,
   THETA_NODE_STATUS,
+  THETA_TRANSACTION_INTERFACE,
   THETA_VCP_INTERFACE
 } from '../types/interface'
 
@@ -42,5 +45,21 @@ export class ThetaHttpProvider {
   async getStatus(): Promise<THETA_NODE_STATUS> {
     const params = {}
     return await this.httpClient.send(THETA_METHOD_ENUM.GetStatus, params)
+  }
+
+  async getVersion(): Promise<THETA_GET_VERSION_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetVersion, {})
+  }
+
+  async getAccount(address: string): Promise<THETA_GET_ACCOUNT_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetAccount, { address: address })
+  }
+
+  async getBlock(hash: string): Promise<THETA_BLOCK_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetBlock, { hash: hash })
+  }
+
+  async getTransaction(hash: string): Promise<THETA_TRANSACTION_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetTransaction, { hash: hash })
   }
 }
