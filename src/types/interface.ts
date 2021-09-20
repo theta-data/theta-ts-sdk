@@ -96,7 +96,24 @@ export interface THETA_BLOCK_INTERFACE {
       }
       type: THETA_TRANSACTION_TYPE_ENUM
       hash: string
-      receipt: null
+      receipt?: {
+        TxHash: string
+        Logs: Array<{
+          address: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
+          // topics: [
+          //   '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+          //   '0x000000000000000000000000ead81be8f05a49c9b40984405e03fb6caf7ca401',
+          //   '0x000000000000000000000000d766c2815bec0a41a1c6a03bd84fe53f6920b701',
+          //   '0x0000000000000000000000000000000000000000000000000000000000001be7'
+          // ]
+          topics: Array<string>
+          data: string //''
+        }>
+        EvmRet: string // ''
+        ContractAddress: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
+        GasUsed: number // 98093
+        EvmErr: string //''
+      }
     }>
   }
 }
