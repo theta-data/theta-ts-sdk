@@ -281,80 +281,13 @@ export interface THETA_TRANSACTION_INTERFACE {
   }
 }
 
-// export interface THETA_GET_BLOCK_INTERFACE {
-//   jsonrpc: string //'2.0'
-//   id: number //1
-//   result: {
-//     chain_id: string //'privatenet'
-//     epoch: string //'5'
-//     height: string //'3'
-//     parent: string //'0x724b0f68d8e45f930b95bac224fa7d67eef243307b4e84f0f666198d1d70e9d7'
-//     transactions_hash: string //'0x2bf2c62185fceed239a55bd27ada030cf75970f09122addb2e419e70cafebdf0'
-//     state_hash: string //'0xd41742c2b0d70e3bac1d88b2af69a2491d8c65c650af6ec4d2b8873897f8becc'
-//     timestamp: string //'1548102762'
-//     proposer: string // '0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-//     children: Array<string> //['0x21d3c2bb25d0c85a1f5c3ff81bc7eeae998bf98db1dba461fb3f69a434feb90c']
-//     status: THETA_BLOCK_STATUS_ENUM //4
-//     hash: string //'0x9f1e77b08c9fa8984096a735d0aae6b0e43aee297e42c54ce36334103ddd67a7'
-//     transactions: [
-//       {
-//         raw: {
-//           proposer: {
-//             address: '0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-//             coins: {
-//               thetawei: '0'
-//               tfuelwei: '0'
-//             }
-//             sequence: '0'
-//             signature: '0x31af035f0dc47ded00eb5139fd5e4bb76f82e89e29adae60df1277a25b0c7b135b097502ff0aa66249a423d22f291804a9e178af59c24ccbf1af2f58b83964ef00'
-//           }
-//           outputs: [
-//             {
-//               address: '0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-//               coins: {
-//                 thetawei: '0'
-//                 tfuelwei: '0'
-//               }
-//             }
-//           ]
-//           block_height: '2'
-//         }
-//         type: 0
-//         hash: '0x642f7d70680eefcc34f750cd6e03b57035f197baeabfa8e8420f55d994f5265f'
-//       },
-//       {
-//         raw: {
-//           fee: {
-//             thetawei: '0'
-//             tfuelwei: '1000000000000'
-//           }
-//           inputs: [
-//             {
-//               address: '0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-//               coins: {
-//                 thetawei: '10000000000000000000'
-//                 tfuelwei: '20000001000000000000'
-//               }
-//               sequence: '1'
-//               signature: '0x2f8f17b13c07e57d4c5d2c89e87d9e608f0eff22ef1f96eed5647b063265450216ef4f7a8578bf702cf26db00fb2e758521873bb1b68528325c84b59a2debc7400'
-//             }
-//           ]
-//           outputs: [
-//             {
-//               address: '0x9f1233798e905e173560071255140b4a8abd3ec6'
-//               coins: {
-//                 thetawei: '10000000000000000000'
-//                 tfuelwei: '20000000000000000000'
-//               }
-//             }
-//           ]
-//         }
-//         type: 2
-//         hash: '0xf3cc94af7a1520b384999ad106ade9738b6cde66e2377ceab37067329d7173a0'
-//       }
-//     ]
-//   }
-// }
+export interface THETA_GET_PENDING_TRANSACTIONS_INTERFACE {
+  jsonrpc: string //'2.0'
+  id: number //1
+  result: {
+    tx_hashes: Array<string>
+  }
+}
 
 export interface CMC_PRICE_INFORMATION {
   name: string

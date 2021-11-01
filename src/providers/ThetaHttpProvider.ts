@@ -5,6 +5,7 @@ import {
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
   THETA_GET_ACCOUNT_INTERFACE,
+  THETA_GET_PENDING_TRANSACTIONS_INTERFACE,
   THETA_GET_VERSION_INTERFACE,
   THETA_NODE_STATUS,
   THETA_TRANSACTION_INTERFACE,
@@ -61,5 +62,9 @@ export class ThetaHttpProvider {
 
   async getTransaction(hash: string): Promise<THETA_TRANSACTION_INTERFACE> {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetTransaction, { hash: hash })
+  }
+
+  async getPendingTransactions(): Promise<THETA_GET_PENDING_TRANSACTIONS_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetPendingTransactions, {})
   }
 }

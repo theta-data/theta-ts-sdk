@@ -57,3 +57,8 @@ test('should get transaction', async () => {
   )
   expect(transInfo).toHaveProperty('result.transaction')
 })
+
+test('should get pending transaction', async () => {
+  const transInfo = await thetaTsSdk.blockchain.getPendingTransactions()
+  expect(transInfo).toHaveProperty('result.tx_hashes')
+})
