@@ -62,3 +62,11 @@ test('should get pending transaction', async () => {
   const transInfo = await thetaTsSdk.blockchain.getPendingTransactions()
   expect(transInfo).toHaveProperty('result.tx_hashes')
 })
+
+test('should get stake reward distribution ', async () => {
+  const transInfo = await thetaTsSdk.blockchain.getStakeRewardDistributionByHeight(height)
+  expect(transInfo).toHaveProperty('result.BlockHashStakeRewardDistributionRuleSetPairs')
+  expect(transInfo.result.BlockHashStakeRewardDistributionRuleSetPairs[0]).toHaveProperty(
+    'StakeRewardDistributionRuleSet'
+  )
+})

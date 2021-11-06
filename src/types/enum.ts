@@ -39,6 +39,8 @@ export enum THETA_METHOD_ENUM {
   GetEenpByHeight = 'theta.GetEenpByHeight',
   GetStatus = 'theta.GetStatus',
   GetVersion = 'theta.GetVersion',
-  GetPendingTransactions = 'theta.GetPendingTransactions'
+  GetPendingTransactions = 'theta.GetPendingTransactions',
+  GetStakeRewardDistributionByHeight = 'theta.GetStakeRewardDistributionByHeight'
+
   // GetAccount = 'theta.GetAccount'
 }

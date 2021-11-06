@@ -289,6 +289,28 @@ export interface THETA_GET_PENDING_TRANSACTIONS_INTERFACE {
   }
 }
 
+export interface THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE {
+  jsonrpc: string //'2.0'
+  id: number //1
+  result: {
+    BlockHashStakeRewardDistributionRuleSetPairs: Array<{
+      BlockHash: string //"0x68af3075f3220eea990e107c6934f37e806f7747126d6f0ab911988e8522bce0",
+      StakeRewardDistributionRuleSet: // [
+      //   {
+      //     "Beneficiary": "0x88881888814d847a97c1d6b9a612056806128888",
+      //     "SplitBasisPoint": 400,
+      //     "StakeHolder": "0x0000a888ae9e34075ee90ef5bc4906e871d874cd"
+      //   }
+      // ]
+      Array<{
+        Beneficiary: string
+        SplitBasisPoint: string
+        StakeHolder: string
+      }>
+    }>
+  }
+}
+
 export interface CMC_PRICE_INFORMATION {
   name: string
   price: number

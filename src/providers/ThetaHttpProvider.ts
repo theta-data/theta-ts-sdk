@@ -6,6 +6,7 @@ import {
   THETA_GCP_INTERFACE,
   THETA_GET_ACCOUNT_INTERFACE,
   THETA_GET_PENDING_TRANSACTIONS_INTERFACE,
+  THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE,
   THETA_GET_VERSION_INTERFACE,
   THETA_NODE_STATUS,
   THETA_TRANSACTION_INTERFACE,
@@ -66,5 +67,12 @@ export class ThetaHttpProvider {
 
   async getPendingTransactions(): Promise<THETA_GET_PENDING_TRANSACTIONS_INTERFACE> {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetPendingTransactions, {})
+  }
+
+  async getStakeRewardDistributionByHeight(
+    blockHeight: string
+  ): Promise<THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE> {
+    const params = { height: blockHeight }
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight, params)
   }
 }
