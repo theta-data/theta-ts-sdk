@@ -46,6 +46,8 @@ export interface THETA_BLOCK_INTERFACE {
     hash: string
     transactions: Array<{
       raw: {
+        gas_limit?: string //'10000000'
+        gas_price?: string //'4000000000000'
         proposer: {
           address: string
           coins: {

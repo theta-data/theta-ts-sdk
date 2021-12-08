@@ -15,104 +15,45 @@ npm install theta-ts-sdk --save
 ```
 
 ## Quick Start
-
 ### blockchain
-
-[comment]: <> (```typescript)
-
-[comment]: <> (const provider = new ThetaHttpProvider&#40;'https://theta-bridge-rpc.thetatoken.org/rpc'&#41; //support use your own rpc url)
-
-[comment]: <> (```)
 #### getBlockByHeight
 
 ```typescript
-const blockInfo = await thetaTsSdk.blockchain.getBlockByHeight('11828300')
+const blockInfo = await thetaTsSdk.blockchain.getBlockByHeight('12812680')
 ```
 Response:
-```typescript
-interface THETA_BLOCK_INTERFACE {
-  jsonrpc: '2.0'
-  id: number
-  result: {
-    chain_id: 'mainnet' | 'testnet'
-    epoch: string
-    height: string
-    parent: string
-    transactions_hash: string
-    state_hash: string
-    timestamp: string
-    proposer: string
-    hcc: {
-      Votes: Array<{
-        Block: string
-        Height: number
-        Epoch: number
-        ID: string
-        Signature: string
-      }>
-      BlockHash: string
-    }
-    guardian_votes: null
-    children: Array<string>
-    status: THETA_BLOCK_STATUS_ENUM
-    hash: string
-    transactions: Array<{
-      raw: {
-        proposer: {
-          address: string
-          coins: {
-            thetawei: string
-            tfuelwei: string
-          }
-          sequence: string
-          signature: string
-        }
-        fee?: {
-          thetawei: string //"0",
-          tfuelwei: string //"1000000000000"
-        }
-        inputs?: Array<{
-          address: string //'0x26239129266c3f46009287294e0ed63fb198de62'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000001000000000000'
-          }
-          sequence: string //'2038643'
-          signature: string //'0x19d7ed0fb61e2dff057c167260e38d62035d53429566a5c2a6618b2181948ca040ab47c8785a10bfd41164135983faee48d2b92ce54523dacc8db0a5306c98ea00'
-        }>
-        outputs?: Array<{
-          address: string //'0x786f1cf0a576a61eeea0bc7fa92041a5f541381a'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000000000000000000'
-          }
-        }>
-        block_height: string
-        holder?: {
-          address: string //"0x162841f679948ec58ffd8f4277037228a6c04943",
-          coins: {
-            thetawei: string //"0",
-            tfuelwei: string //"0"
-          }
-        }
-        source?: {
-          address: string //'0x502e2b42b45f1e5a14fbf2b0047e9f65a327c0bf'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'0'
-          }
-          sequence: string //'4'
-          signature: string //'0x6017f2f9c6c5815e2cd49c38bf2cb6953532c16802b89f27e035fcdd3176e070670c44ecf9351b9735dbf97868da1dee584ac49f0bdc94a01d06f06bc7967b4a01'
-        }
-        purpose?: number // 1
+```json
+{
+  "result": {
+    "chain_id": "mainnet",
+    "children": [
+      "0x232ee6c1901c6ddd960aacded97268664b2d83d034f1a828585948f71314b757"
+    ],
+    "epoch": "12895514",
+    "hash": "0x4af27e43da47a7398fe904967f002268e14d48f6e226a15f0333997aaa37ce7b",
+    "height": "12812680",
+    "parent": "0x1d6721f1e2d88bf5c8c89a6ee00d96d5b0b065706a4d60d3972ba0a27d1c16ef",
+    "proposer": "0xcbcef62ca7a2e367a9c93aba07ea4e63139da99d",
+    "state_hash": "0x63fb02fa46694160c31485628da6d7830db438817f402d817ad661c4e2617f98",
+    "status": "directly_finalized",
+    "timestamp": "1636722729",
+    "transactions_hash": "0x6166e704b2cf37e4c85faa9ed00a176161c8fc835b1c9b812f58266c2c961b24",
+    "transactions": [
+      {
+        "type": "TxCoinbase",
+        "hash": "0x16df2d1fd50fe2bbe3c0ff0b15bdd69dd0ddb3e4bb751d9772e38e8cb3440c76"
+      },
+      {
+        "type": "TxSmartContract",
+        "hash": "0x37670692b97a9fb5ff018b5e9f38f6e793078bfe38565c9ec1b064bde13f6db4"
+      },
+      {
+        "type": "TxSmartContract",
+        "hash": "0xb592df01962244c7e31a5a3d40976340b9705bf3e61f5d3623df634396e55a3e"
       }
-      type: THETA_TRANSACTION_TYPE_ENUM
-      hash: string
-      receipt: null
-    }>
+    ]
   }
 }
-
 ```
 
 #### getVcpByHeight
