@@ -95,6 +95,31 @@ export interface THETA_BLOCK_INTERFACE {
           signature: string //'0x6017f2f9c6c5815e2cd49c38bf2cb6953532c16802b89f27e035fcdd3176e070670c44ecf9351b9735dbf97868da1dee584ac49f0bdc94a01d06f06bc7967b4a01'
         }
         purpose?: number // 1
+        data?: string
+        from?: {
+          address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+          coins: {
+            thetawei: string //'0'
+            tfuelwei: string //'11000001000000000000'
+          }
+
+          sequence: string //"0",
+
+          signature: string
+        }
+        to?: {
+          address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+          coins: {
+            thetawei: string //'0'
+            tfuelwei: string //'11000001000000000000'
+          }
+
+          sequence: string //"0",
+
+          signature: string
+        }
       }
       type: THETA_TRANSACTION_TYPE_ENUM
       hash: string
