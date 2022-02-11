@@ -75,4 +75,9 @@ export class ThetaHttpProvider {
     const params = { height: blockHeight }
     return await this.httpClient.send(THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight, params)
   }
+
+  async callSmartContract(sctxBytes: string) {
+    const params = { sctx_bytes: sctxBytes }
+    return await this.httpClient.send(THETA_METHOD_ENUM.CallSmartContract, params)
+  }
 }

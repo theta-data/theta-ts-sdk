@@ -41,6 +41,7 @@ export enum THETA_METHOD_ENUM {
   GetVersion = 'theta.GetVersion',
   GetPendingTransactions = 'theta.GetPendingTransactions',
   GetStakeRewardDistributionByHeight = 'theta.GetStakeRewardDistributionByHeight'
+  // CallSmartContract
 
   // GetAccount = 'theta.GetAccount'
 }

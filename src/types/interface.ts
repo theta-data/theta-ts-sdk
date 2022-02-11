@@ -338,6 +338,17 @@ export interface THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE {
   }
 }
 
+export interface THETA_CALL_SMART_CONTRACT_INTERFACE {
+  jsonrpc: string //'2.0'
+  id: number //1
+  result: {
+    vm_return: string //'0000000000000000000000004dc08b15ea0e10b96c41aec22fab934ba15c983e'
+    contract_address: string //'0x8366537d56cf2b86ca90e9dbc89450207a29f6e3'
+    gas_used: string //'21536'
+    vm_error: string // ''
+  }
+}
+
 export interface CMC_PRICE_INFORMATION {
   name: string
   price: number
