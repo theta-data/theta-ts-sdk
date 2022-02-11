@@ -2,6 +2,7 @@ import { HttpClient } from './HttpClient'
 import { THETA_METHOD_ENUM } from '../types/enum'
 import {
   THETA_BLOCK_INTERFACE,
+  THETA_CALL_SMART_CONTRACT_INTERFACE,
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
   THETA_GET_ACCOUNT_INTERFACE,
@@ -76,7 +77,7 @@ export class ThetaHttpProvider {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight, params)
   }
 
-  async callSmartContract(sctxBytes: string) {
+  async callSmartContract(sctxBytes: string): Promise<THETA_CALL_SMART_CONTRACT_INTERFACE> {
     const params = { sctx_bytes: sctxBytes }
     return await this.httpClient.send(THETA_METHOD_ENUM.CallSmartContract, params)
   }
