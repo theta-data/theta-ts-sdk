@@ -24,6 +24,8 @@ export class TransactionProvider {
     switch (tx.type) {
       case THETA_TRANSACTION_TYPE_ENUM.smart_contract:
         const valueWeiBN = BigNumber.isBigNumber(tx.value) ? tx.value : new BigNumber(tx.value)
+        const ten18 = new BigNumber(10).pow(18) // 10^18, 1 Theta = 10^18 ThetaWei, 1 Gamma = 10^ TFuelWei
+        const feeInTFuelWei = new BigNumber(tx.gasPrice).multipliedBy(ten18) //
 
         const from = new TxInput(tx.fromAddress, null, valueWeiBN, tx.senderSequence)
         rplInput.push(from.rlpInput())

@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+// import BigNumber from 'bignumber.js'
 import { THETA_TRANSACTION_TYPE_ENUM } from './enum'
 // import * as BigNumber from 'bignumber.js'
 
@@ -19,7 +19,7 @@ export interface THETA_SMART_CONTRACT_INTERFACE {
   fromAddress: string
   toAddress: string
   gasLimit: number
-  gasPrice: BigNumber
+  gasPrice: number
   data: string
   value: number
   senderSequence: number
