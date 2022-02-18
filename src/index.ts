@@ -10,6 +10,6 @@ import { TransactionProvider } from './providers/TransactionProvider'
 
 export const thetaTsSdk: THETA_TS_SDK = {
   blockchain: new ThetaHttpProvider(),
-  cmc: new CmcHttpProvider(),
-  tx: new TransactionProvider()
+  cmc: new CmcHttpProvider()
+  // tx: new TransactionProvider()
 }

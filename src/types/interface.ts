@@ -363,5 +363,5 @@ export interface CMC_PRICE_INFORMATION {
 export interface THETA_TS_SDK {
   cmc: CmcHttpProvider
   blockchain: ThetaHttpProvider
-  tx: TransactionProvider
+  // tx: TransactionProvider
 }

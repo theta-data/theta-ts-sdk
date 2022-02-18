@@ -1,5 +1,5 @@
 import { HttpClient } from './HttpClient'
-import { THETA_METHOD_ENUM } from '../types/enum'
+import { THETA_METHOD_ENUM, THETA_TRANSACTION_TYPE_ENUM } from '../types/enum'
 import {
   THETA_BLOCK_INTERFACE,
   THETA_CALL_SMART_CONTRACT_INTERFACE,
@@ -13,6 +13,7 @@ import {
   THETA_TRANSACTION_INTERFACE,
   THETA_VCP_INTERFACE
 } from '../types/interface'
+import { TransactionProvider } from './TransactionProvider'
 
 export class ThetaHttpProvider {
   httpClient: HttpClient
@@ -77,7 +78,30 @@ export class ThetaHttpProvider {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight, params)
   }
 
-  async callSmartContract(sctxBytes: string): Promise<THETA_CALL_SMART_CONTRACT_INTERFACE> {
+  async callSmartContract(
+    from: string,
+    to: string,
+    data: string
+  ): Promise<THETA_CALL_SMART_CONTRACT_INTERFACE> {
+    const gasPrice = 0.000001
+    const gasLimit = 2000000
+    const senderSequence = 1
+    const txProcesser = new TransactionProvider()
+    if (data.toLowerCase().startsWith('0x') === false) {
+      data = '0x' + data
+    }
+    console.log('call smart contract data', data)
+    const rawTxBytes = txProcesser.serializeTx({
+      type: THETA_TRANSACTION_TYPE_ENUM.smart_contract,
+      fromAddress: from,
+      toAddress: to,
+      gasLimit: gasLimit,
+      gasPrice: gasPrice,
+      data: data,
+      value: 0,
+      senderSequence: senderSequence
+    })
+    const sctxBytes: string = rawTxBytes.toString('hex').slice(2)
     const params = { sctx_bytes: sctxBytes }
     return await this.httpClient.send(THETA_METHOD_ENUM.CallSmartContract, params)
   }

@@ -1,11 +1,19 @@
 import { THETA_SMART_CONTRACT_INTERFACE } from '../types/transaction-interface'
-import isString from 'lodash/isString'
-import isNumber from 'lodash/isNumber'
+// import isString from 'lodash/isString'
+// import isNumber from 'lodash/isNumber'
 import BigNumber from 'bignumber.js'
 import { THETA_TRANSACTION_TYPE_ENUM } from '../types/enum'
 const Bytes = require('eth-lib/lib/bytes')
+console.log(
+  Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
+)
+console.log(
+  Bytes.fromArray(
+    Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
+  )
+)
 const RLP = require('eth-lib/lib/rlp')
-const Hash = require('eth-lib/lib/hash')
+// const Hash = require('eth-lib/lib/hash')
 const encodeWei = (wei) => {
   if (wei === null || wei === undefined) {
     return Bytes.fromNat('0x0')
@@ -32,8 +40,8 @@ export class TransactionProvider {
         const to = new TxOutput(tx.toAddress, null, null)
         rplInput.push(to.rlpInput())
         rplInput.push(Bytes.fromNumber(tx.gasLimit))
-        rplInput.push(this.encodeWei(tx.gasPrice))
-        rplInput.push(Bytes.fromArray(tx.data))
+        rplInput.push(encodeWei(feeInTFuelWei))
+        rplInput.push(tx.data)
         break
       default:
         break
@@ -44,15 +52,15 @@ export class TransactionProvider {
   }
   signTx() {}
 
-  encodeWei(wei) {
-    if (wei === null || wei === undefined) {
-      return Bytes.fromNat('0x0')
-    } else if (wei.isEqualTo(new BigNumber(0))) {
-      return Bytes.fromNat('0x0')
-    } else {
-      return Bytes.fromNumber(wei)
-    }
-  }
+  //   encodeWei(wei) {
+  //     if (wei === null || wei === undefined) {
+  //       return Bytes.fromNat('0x0')
+  //     } else if (wei.isEqualTo(new BigNumber(0))) {
+  //       return Bytes.fromNat('0x0')
+  //     } else {
+  //       return Bytes.fromNumber(wei)
+  //     }
+  //   }
 }
 
 class TxInput {
