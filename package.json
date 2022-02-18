@@ -1,6 +1,6 @@
 {
   "name": "theta-ts-sdk",
-  "version": "0.2.67",
+  "version": "0.2.68",
   "description": "theta sdk for typescript",
   "scripts": {
     "test": "jest",
@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "bignumber": "^1.1.0",
+    "bignumber.js": "^9.0.2",
     "cross-fetch": "^3.1.4",
     "eth-lib": "^0.1.29",
     "lodash": "^4.17.21",

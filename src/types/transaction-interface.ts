@@ -1,4 +1,6 @@
+import BigNumber from 'bignumber.js'
 import { THETA_TRANSACTION_TYPE_ENUM } from './enum'
+// import * as BigNumber from 'bignumber.js'
 
 export interface THETA_COIN_INTERFACE {
   thetaWei: number
@@ -17,8 +19,8 @@ export interface THETA_SMART_CONTRACT_INTERFACE {
   fromAddress: string
   toAddress: string
   gasLimit: number
-  gasPrice: number
+  gasPrice: BigNumber
   data: string
-  value: string
+  value: number
   senderSequence: number
 }

@@ -1,7 +1,7 @@
 import { THETA_SMART_CONTRACT_INTERFACE } from '../types/transaction-interface'
 import isString from 'lodash/isString'
 import isNumber from 'lodash/isNumber'
-import BigNumber from 'bignumber'
+import BigNumber from 'bignumber.js'
 import { THETA_TRANSACTION_TYPE_ENUM } from '../types/enum'
 const Bytes = require('eth-lib/lib/bytes')
 const RLP = require('eth-lib/lib/rlp')
