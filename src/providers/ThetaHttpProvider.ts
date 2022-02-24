@@ -6,6 +6,7 @@ import {
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
   THETA_GET_ACCOUNT_INTERFACE,
+  THETA_GET_BLOCKS_BY_RANGE_INTERFACE,
   THETA_GET_BLOCK_INTERFACE,
   THETA_GET_PENDING_TRANSACTIONS_INTERFACE,
   THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE,
@@ -68,7 +69,7 @@ export class ThetaHttpProvider {
     start: string,
     end: string,
     includeEthTxHashes: boolean = false
-  ): Promise<THETA_GET_BLOCK_INTERFACE> {
+  ): Promise<THETA_GET_BLOCKS_BY_RANGE_INTERFACE> {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetBlocksByRange, {
       start: start,
       end: end,
