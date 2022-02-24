@@ -10,140 +10,148 @@ export interface THETA_NETWORK_INTERFACE {
   explorerUrl: string
 }
 
-export interface THETA_BLOCK_INTERFACE {
+export interface THETA_GET_BLOCK_INTERFACE {
   jsonrpc: '2.0'
   id: number
-  result: {
-    chain_id: 'mainnet' | 'testnet'
-    epoch: string
-    height: string
-    parent: string
-    transactions_hash: string
-    state_hash: string
-    timestamp: string
-    proposer: string
-    hcc: {
-      Votes: Array<{
-        Block: string
-        Height: number
-        Epoch: number
-        ID: string
-        Signature: string
-      }>
-      BlockHash: string
-    }
-    guardian_votes: null | {
+  result: THETA_BLOCK_INTERFACE
+}
+
+export interface THETA_GET_BLOCKS_BY_RANGE_INTERFACE {
+  jsonrpc: '2.0'
+  id: number
+  result: Array<THETA_BLOCK_INTERFACE>
+}
+
+export interface THETA_BLOCK_INTERFACE {
+  chain_id: 'mainnet' | 'testnet'
+  epoch: string
+  height: string
+  parent: string
+  transactions_hash: string
+  state_hash: string
+  timestamp: string
+  proposer: string
+  hcc: {
+    Votes: Array<{
       Block: string
-      Gcp: string
-      Multiplies: Array<number>
-    }
-    elite_edge_node_votes: null | {
-      Block: string
-      Multiplies: Array<number>
-      Addresses: Array<string>
-    }
-    children: Array<string>
-    status: THETA_BLOCK_STATUS_ENUM
-    hash: string
-    transactions: Array<{
-      raw: {
-        gas_limit?: string //'10000000'
-        gas_price?: string //'4000000000000'
-        proposer: {
-          address: string
-          coins: {
-            thetawei: string
-            tfuelwei: string
-          }
-          sequence: string
-          signature: string
-        }
-        fee?: {
-          thetawei: string //"0",
-          tfuelwei: string //"1000000000000"
-        }
-        inputs?: Array<{
-          address: string //'0x26239129266c3f46009287294e0ed63fb198de62'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000001000000000000'
-          }
-          sequence: string //'2038643'
-          signature: string //'0x19d7ed0fb61e2dff057c167260e38d62035d53429566a5c2a6618b2181948ca040ab47c8785a10bfd41164135983faee48d2b92ce54523dacc8db0a5306c98ea00'
-        }>
-        outputs?: Array<{
-          address: string //'0x786f1cf0a576a61eeea0bc7fa92041a5f541381a'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000000000000000000'
-          }
-        }>
-        block_height: string
-        holder?: {
-          address: string //"0x162841f679948ec58ffd8f4277037228a6c04943",
-          coins: {
-            thetawei: string //"0",
-            tfuelwei: string //"0"
-          }
-        }
-        source?: {
-          address: string //'0x502e2b42b45f1e5a14fbf2b0047e9f65a327c0bf'
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'0'
-          }
-          sequence: string //'4'
-          signature: string //'0x6017f2f9c6c5815e2cd49c38bf2cb6953532c16802b89f27e035fcdd3176e070670c44ecf9351b9735dbf97868da1dee584ac49f0bdc94a01d06f06bc7967b4a01'
-        }
-        purpose?: number // 1
-        data?: string
-        from?: {
-          address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000001000000000000'
-          }
-
-          sequence: string //"0",
-
-          signature: string
-        }
-        to?: {
-          address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
-
-          coins: {
-            thetawei: string //'0'
-            tfuelwei: string //'11000001000000000000'
-          }
-
-          sequence: string //"0",
-
-          signature: string
-        }
-      }
-      type: THETA_TRANSACTION_TYPE_ENUM
-      hash: string
-      receipt?: {
-        TxHash: string
-        Logs: Array<{
-          address: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
-          // topics: [
-          //   '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
-          //   '0x000000000000000000000000ead81be8f05a49c9b40984405e03fb6caf7ca401',
-          //   '0x000000000000000000000000d766c2815bec0a41a1c6a03bd84fe53f6920b701',
-          //   '0x0000000000000000000000000000000000000000000000000000000000001be7'
-          // ]
-          topics: Array<string>
-          data: string //''
-        }>
-        EvmRet: string // ''
-        ContractAddress: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
-        GasUsed: number // 98093
-        EvmErr: string //''
-      }
+      Height: number
+      Epoch: number
+      ID: string
+      Signature: string
     }>
+    BlockHash: string
   }
+  guardian_votes: null | {
+    Block: string
+    Gcp: string
+    Multiplies: Array<number>
+  }
+  elite_edge_node_votes: null | {
+    Block: string
+    Multiplies: Array<number>
+    Addresses: Array<string>
+  }
+  children: Array<string>
+  status: THETA_BLOCK_STATUS_ENUM
+  hash: string
+  transactions: Array<{
+    raw: {
+      gas_limit?: string //'10000000'
+      gas_price?: string //'4000000000000'
+      proposer: {
+        address: string
+        coins: {
+          thetawei: string
+          tfuelwei: string
+        }
+        sequence: string
+        signature: string
+      }
+      fee?: {
+        thetawei: string //"0",
+        tfuelwei: string //"1000000000000"
+      }
+      inputs?: Array<{
+        address: string //'0x26239129266c3f46009287294e0ed63fb198de62'
+        coins: {
+          thetawei: string //'0'
+          tfuelwei: string //'11000001000000000000'
+        }
+        sequence: string //'2038643'
+        signature: string //'0x19d7ed0fb61e2dff057c167260e38d62035d53429566a5c2a6618b2181948ca040ab47c8785a10bfd41164135983faee48d2b92ce54523dacc8db0a5306c98ea00'
+      }>
+      outputs?: Array<{
+        address: string //'0x786f1cf0a576a61eeea0bc7fa92041a5f541381a'
+        coins: {
+          thetawei: string //'0'
+          tfuelwei: string //'11000000000000000000'
+        }
+      }>
+      block_height: string
+      holder?: {
+        address: string //"0x162841f679948ec58ffd8f4277037228a6c04943",
+        coins: {
+          thetawei: string //"0",
+          tfuelwei: string //"0"
+        }
+      }
+      source?: {
+        address: string //'0x502e2b42b45f1e5a14fbf2b0047e9f65a327c0bf'
+        coins: {
+          thetawei: string //'0'
+          tfuelwei: string //'0'
+        }
+        sequence: string //'4'
+        signature: string //'0x6017f2f9c6c5815e2cd49c38bf2cb6953532c16802b89f27e035fcdd3176e070670c44ecf9351b9735dbf97868da1dee584ac49f0bdc94a01d06f06bc7967b4a01'
+      }
+      purpose?: number // 1
+      data?: string
+      from?: {
+        address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+        coins: {
+          thetawei: string //'0'
+          tfuelwei: string //'11000001000000000000'
+        }
+
+        sequence: string //"0",
+
+        signature: string
+      }
+      to?: {
+        address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+        coins: {
+          thetawei: string //'0'
+          tfuelwei: string //'11000001000000000000'
+        }
+
+        sequence: string //"0",
+
+        signature: string
+      }
+    }
+    type: THETA_TRANSACTION_TYPE_ENUM
+    hash: string
+    receipt?: {
+      TxHash: string
+      Logs: Array<{
+        address: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
+        // topics: [
+        //   '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef',
+        //   '0x000000000000000000000000ead81be8f05a49c9b40984405e03fb6caf7ca401',
+        //   '0x000000000000000000000000d766c2815bec0a41a1c6a03bd84fe53f6920b701',
+        //   '0x0000000000000000000000000000000000000000000000000000000000001be7'
+        // ]
+        topics: Array<string>
+        data: string //''
+      }>
+      EvmRet: string // ''
+      ContractAddress: string //'0x06c23c22c19a031a71cc5946349752e13859ee08'
+      GasUsed: number // 98093
+      EvmErr: string //''
+    }
+  }>
 }
 
 export interface HTTP_PROVIDER_INTERFACE {

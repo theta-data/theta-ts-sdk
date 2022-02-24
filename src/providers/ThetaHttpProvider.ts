@@ -6,6 +6,7 @@ import {
   THETA_EENP_INTERFACE,
   THETA_GCP_INTERFACE,
   THETA_GET_ACCOUNT_INTERFACE,
+  THETA_GET_BLOCK_INTERFACE,
   THETA_GET_PENDING_TRANSACTIONS_INTERFACE,
   THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE,
   THETA_GET_VERSION_INTERFACE,
@@ -26,7 +27,7 @@ export class ThetaHttpProvider {
     this.httpClient = new HttpClient(url)
   }
 
-  async getBlockByHeight(blockHeight: string): Promise<THETA_BLOCK_INTERFACE> {
+  async getBlockByHeight(blockHeight: string): Promise<THETA_GET_BLOCK_INTERFACE> {
     const params = { height: blockHeight }
     return await this.httpClient.send(THETA_METHOD_ENUM.GetBlockByHeight, params)
   }
@@ -59,8 +60,20 @@ export class ThetaHttpProvider {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetAccount, { address: address })
   }
 
-  async getBlock(hash: string): Promise<THETA_BLOCK_INTERFACE> {
+  async getBlock(hash: string): Promise<THETA_GET_BLOCK_INTERFACE> {
     return await this.httpClient.send(THETA_METHOD_ENUM.GetBlock, { hash: hash })
+  }
+
+  async getBlockSByRange(
+    start: string,
+    end: string,
+    includeEthTxHashes: boolean = false
+  ): Promise<THETA_GET_BLOCK_INTERFACE> {
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetBlocksByRange, {
+      start: start,
+      end: end,
+      include_eth_tx_hashes: includeEthTxHashes
+    })
   }
 
   async getTransaction(hash: string): Promise<THETA_TRANSACTION_INTERFACE> {
