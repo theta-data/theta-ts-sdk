@@ -284,6 +284,32 @@ export interface THETA_GET_ACCOUNT_INTERFACE {
   }
 }
 
+export interface THETA_TOKEN_TYPE {
+  thetawei: string // "994999990000000000000000000",
+
+  tfuelwei: string //"4999999979999999000000000000"
+}
+
+export interface THETA_TRANSACTION_PROPOSER_TYPE {
+  address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+  coins: THETA_TOKEN_TYPE
+
+  sequence: string //"0",
+
+  signature: string //
+}
+
+export interface THETA_TRANSACTION_SOURCE_TARGET_TYPE {
+  address: string //'0x2e833968e5bb786ae419c4d13189fb081cc43bab'
+
+  coins: THETA_TOKEN_TYPE
+
+  sequence: string //"0",
+
+  signature: string //
+}
+
 export interface THETA_TRANSACTION_INTERFACE {
   jsonrpc: string //'2.0'
   id: number //1
@@ -293,6 +319,7 @@ export interface THETA_TRANSACTION_INTERFACE {
     status: string //'finalized'
     hash: string //'0xf3cc94af7a1520b384999ad106ade9738b6cde66e2377ceab37067329d7173a0'
     transaction: {
+      proposer?: THETA_TRANSACTION_PROPOSER_TYPE
       fee: {
         thetawei: string // '0'
         tfuelwei: string //'1000000000000'
@@ -313,6 +340,30 @@ export interface THETA_TRANSACTION_INTERFACE {
           tfuelwei: string //'20000000000000000000'
         }
       }>
+      gas_limit?: string
+      gas_price?: string
+      from?: THETA_TRANSACTION_PROPOSER_TYPE
+      to?: THETA_TRANSACTION_PROPOSER_TYPE
+
+      data?: string
+
+      block_height?: string
+
+      payment_sequence?: string
+
+      reserve_sequence?: string
+
+      resource_id?: string
+
+      target?: THETA_TRANSACTION_SOURCE_TARGET_TYPE
+
+      source?: THETA_TRANSACTION_SOURCE_TARGET_TYPE
+
+      collateral?: THETA_TOKEN_TYPE
+
+      resource_ids?: Array<string>
+
+      duration?: string
     }
   }
 }
