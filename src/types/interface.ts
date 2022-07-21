@@ -310,6 +310,28 @@ export interface THETA_TRANSACTION_SOURCE_TARGET_TYPE {
   signature: string //
 }
 
+export class THETA_TRANSACTION_RECEIPT_LOG_TYPE {
+  address: string
+
+  topics: Array<string>
+
+  data: string
+}
+
+export interface THETA_TRANSACTION_RECEIPT_TYPE {
+  TxHash: string
+
+  Logs: Array<THETA_TRANSACTION_RECEIPT_LOG_TYPE>
+
+  EvmRet: string
+
+  ContractAddress: string
+
+  GasUsed: number
+
+  EvmErr: string
+}
+
 export interface THETA_TRANSACTION_INTERFACE {
   jsonrpc: string //'2.0'
   id: number //1
@@ -365,6 +387,10 @@ export interface THETA_TRANSACTION_INTERFACE {
 
       duration?: string
     }
+
+    type: THETA_TRANSACTION_TYPE_ENUM
+
+    receipt?: THETA_TRANSACTION_RECEIPT_TYPE
   }
 }
 
