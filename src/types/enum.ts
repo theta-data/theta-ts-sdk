@@ -24,7 +24,9 @@ export enum THETA_TRANSACTION_TYPE_ENUM {
   split_rule,
   smart_contract,
   deposit_stake,
-  withdraw_stake
+  withdraw_stake,
+  tx_deposit_stake_v2,
+  tx_stake_reward_distribution
 }
 
 export enum THETA_METHOD_ENUM {
