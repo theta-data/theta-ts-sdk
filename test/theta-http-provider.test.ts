@@ -24,12 +24,12 @@ test('should get gcp by height', async () => {
   const blockInfo = await thetaTsSdk.blockchain.getGcpByHeight(height)
 
   expect(blockInfo).toHaveProperty('result.BlockHashGcpPairs')
-})
+}, 30000)
 
 test('should get eenp by height', async () => {
   const blockInfo = await thetaTsSdk.blockchain.getEenpByHeight(height)
   expect(blockInfo).toHaveProperty('result.BlockHashEenpPairs')
-})
+}, 30000)
 
 test('should get version', async () => {
   const blockInfo = await thetaTsSdk.blockchain.getVersion()
@@ -69,4 +69,4 @@ test('should get stake reward distribution ', async () => {
   expect(transInfo.result.BlockHashStakeRewardDistributionRuleSetPairs[0]).toHaveProperty(
     'StakeRewardDistributionRuleSet'
   )
-})
+}, 30000)

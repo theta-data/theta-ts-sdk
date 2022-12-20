@@ -1,12 +1,12 @@
-[![NPM](https://nodei.co/npm/theta-ts-sdk.png)](https://nodei.co/npm/theta-ts-sdk/)   
+[![NPM](https://nodei.co/npm/theta-ts-sdk.png)](https://nodei.co/npm/theta-ts-sdk/)
 
 Theta-ts-sdk is the typescript version sdk for [The Theta Network](https://www.thetatoken.org/)
 
 ## Features
 
-* query block information from theta rpc interface
-* supports customize the rpc url
-* query price information from cmc
+- query block information from theta rpc interface
+- supports customize the rpc url
+- query price information from cmc
 
 ## Installation
 
@@ -15,20 +15,22 @@ npm install theta-ts-sdk --save
 ```
 
 ## Quick Start
+
 ### blockchain
+
 #### getBlockByHeight
 
 ```typescript
 const blockInfo = await thetaTsSdk.blockchain.getBlockByHeight('12812680')
 ```
+
 Response:
+
 ```json
 {
   "result": {
     "chain_id": "mainnet",
-    "children": [
-      "0x232ee6c1901c6ddd960aacded97268664b2d83d034f1a828585948f71314b757"
-    ],
+    "children": ["0x232ee6c1901c6ddd960aacded97268664b2d83d034f1a828585948f71314b757"],
     "epoch": "12895514",
     "hash": "0x4af27e43da47a7398fe904967f002268e14d48f6e226a15f0333997aaa37ce7b",
     "height": "12812680",
@@ -59,9 +61,11 @@ Response:
 #### getVcpByHeight
 
 ```typescript
-  const blockInfo = await thetaTsSdk.blockchain.getVcpByHeight('11828300')
+const blockInfo = await thetaTsSdk.blockchain.getVcpByHeight('11828300')
 ```
+
 Response:
+
 ```typescript
 interface THETA_VCP_INTERFACE {
   jsonrpc: '2.0'
@@ -93,9 +97,11 @@ interface THETA_VCP_INTERFACE {
 #### getGcpByHeight
 
 ```typescript
- const blockInfo = await thetaTsSdk.blockchain.getGcpByHeight('11828300')
+const blockInfo = await thetaTsSdk.blockchain.getGcpByHeight('11828300')
 ```
+
 Response:
+
 ```typescript
 interface THETA_GCP_INTERFACE {
   jsonrpc: string //'2.0'
@@ -129,7 +135,9 @@ interface THETA_GCP_INTERFACE {
 ```typescript
 const blockInfo = await thetaTsSdk.blockchain.getEenpByHeight('11828300')
 ```
+
 Response:
+
 ```typescript
 interface THETA_EENP_INTERFACE {
   jsonrpc: string //'2.0'
@@ -155,12 +163,15 @@ interface THETA_EENP_INTERFACE {
   }
 }
 ```
+
 #### getStatus
 
 ```typescript
-  const blockInfo = await thetaTsSdk.blockchain.getStatus()
+const blockInfo = await thetaTsSdk.blockchain.getStatus()
 ```
+
 Response:
+
 ```typescript
 interface THETA_NODE_STATUS {
   jsonrpc: '2.0'
@@ -180,35 +191,4 @@ interface THETA_NODE_STATUS {
     genesis_block_hash: '0xd8836c6cf3c3ccea0b015b4ed0f9efb0ffe6254db793a515843c9d0f68cbab65'
   }
 }
-```
-
-### Creating The CmcHttpProvider
-
-this will provide price related information from  [CoinMarketCap Website](https://coinmarketcap.com).  
-
-you should get your own api key from [CoinMarketCap API](https://coinmarketcap.com/api/).   
-
-set your own key
-```typescript
-thetaTsSdk.cmc.setKey('set-your-own key')
-
-```
-
-#### getInformation
-
-````typescript
-const res = await thetaTsSdk.cmc.getInformation()
-````
-Response:
-```typescript
-interface CMC_PRICE_INFORMATION {
-  name: string
-  price: number
-  volume_24h: number
-  market_cap: number
-  total_supply: number
-  circulating_supply: number
-  last_updated: string
-}
-
 ```

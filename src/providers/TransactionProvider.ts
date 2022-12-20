@@ -4,14 +4,14 @@ import { THETA_SMART_CONTRACT_INTERFACE } from '../types/transaction-interface'
 import BigNumber from 'bignumber.js'
 import { THETA_TRANSACTION_TYPE_ENUM } from '../types/enum'
 const Bytes = require('eth-lib/lib/bytes')
-console.log(
-  Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
-)
-console.log(
-  Bytes.fromArray(
-    Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
-  )
-)
+// console.log(
+//   Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
+// )
+// console.log(
+//   Bytes.fromArray(
+//     Bytes.toArray('0xc87b56dd0000000000000000000000000000000000000000000000000000000000012aa7')
+//   )
+// )
 const RLP = require('eth-lib/lib/rlp')
 // const Hash = require('eth-lib/lib/hash')
 const encodeWei = (wei) => {

@@ -40,12 +40,12 @@ export class ThetaHttpProvider {
 
   async getGcpByHeight(blockHeight: string): Promise<THETA_GCP_INTERFACE> {
     const params = { height: blockHeight }
-    return await this.httpClient.send(THETA_METHOD_ENUM.GetGcpByHeight, params)
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetGcpByHeight, params, 30000)
   }
 
   async getEenpByHeight(blockHeight: string): Promise<THETA_EENP_INTERFACE> {
     const params = { height: blockHeight }
-    return await this.httpClient.send(THETA_METHOD_ENUM.GetEenpByHeight, params)
+    return await this.httpClient.send(THETA_METHOD_ENUM.GetEenpByHeight, params, 30000)
   }
 
   async getStatus(): Promise<THETA_NODE_STATUS> {
@@ -89,7 +89,11 @@ export class ThetaHttpProvider {
     blockHeight: string
   ): Promise<THETA_GET_STAKE_REWARD_DISTRIBUTION_BY_HEIGHT_INTERFACE> {
     const params = { height: blockHeight }
-    return await this.httpClient.send(THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight, params)
+    return await this.httpClient.send(
+      THETA_METHOD_ENUM.GetStakeRewardDistributionByHeight,
+      params,
+      30000
+    )
   }
 
   async callSmartContract(
